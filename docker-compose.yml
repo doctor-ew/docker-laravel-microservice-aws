@@ -19,7 +19,7 @@ services:
       - db
 
   db:
-    image: mysql:latest
+
     restart: always
     environment:
       MYSQL_DATABASE: admin
