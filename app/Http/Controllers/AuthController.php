@@ -25,7 +25,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (!Auth::attempt($request->only('email','password'))){
+        if (!Auth::attempt($request->only('email', 'password'))) {
             return \response([
                 'error' => 'Invalid credentials'
             ], Response::HTTP_UNAUTHORIZED);
@@ -39,5 +39,10 @@ class AuthController extends Controller
         return \response([
             'jwt' => $token
         ]);
+    }
+
+    public function user(Request $request)
+    {
+        return $request->user();
     }
 }
